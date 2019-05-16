@@ -62,7 +62,7 @@ public class GUI extends JFrame{
             socket = new Socket("localhost", 8888);
             ObjectOutputStream sendMessage = new ObjectOutputStream(socket.getOutputStream());
             Message message = new Message(keys.getPubKey(), encryption.encrypt(keys.getPrivateKey(), sha512), sha512);
-            System.out.println(message.getCryptedMessage());
+            System.out.println(message.getHash());
             sendMessage.writeObject(message);
             socket.close();
         }
